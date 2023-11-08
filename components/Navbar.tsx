@@ -1,57 +1,39 @@
-import { useState } from "react";
+// import Sidebar from "../sidebar/Sidebar";
 import style from "../styles/Navbar.module.css";
-import Link from "next/link";
+import { motion } from "framer-motion";
+import Sidebar from "./Sidebar";
+
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
-
   return (
-    <div className={style.container}>
-      <Link href="/">VidSpark</Link>
-      <ul className={style.list}>
-        <li className={style.listItem}>
-          <Link href="/products/design">DESIGN</Link>
-        </li>
-        <li className={style.listItem}>
-          <Link href="/products/development">DEVELOPMENT</Link>
-        </li>
-        <li className={style.listItem}>
-          <Link href="/products/production">PRODUCTION</Link>
-        </li>
-        <li className={style.listItem}>
-          <Link href="/products/photography">PHOTOGRAPHY</Link>
-        </li>
-        <li className={style.listItem}>
-          <Link href="/contact">CONTACT</Link>
-        </li>
-      </ul>
-      <div className={style.hamburger} onClick={() => setOpen(!open)}>
-        <div className={style.line} />
-        <div className={style.line} />
-        <div className={style.line} />
+    <div className={style.navbar}>
+      {/* Sidebar */}
+      <Sidebar />
+      <div className={style.wrapper}>
+        <motion.span
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          VidSpark
+        </motion.span>
+        <div className={style.social}>
+          {/* <a href="#"> */}
+            <img src="/facebook.png" alt="" />
+          {/* </a> */}
+          {/* <a href="#"> */}
+            <img src="/instagram.png" alt="" />
+          {/* </a> */}
+          {/* <a href="#"> */}
+            <img src="/youtube.png" alt="" />
+          {/* </a> */}
+          {/* <a href="#"> */}
+            <img src="/dribbble.png" alt="" />
+          {/* </a> */}
+        </div>
       </div>
-      <ul onClick={()=>setOpen(false)} className={style.menu} style={{ right: open ? "0px" : "-50vw" }}>
-        <li className={style.menuItem}>
-          <Link href="/">HOME</Link>
-        </li>
-        <li className={style.menuItem}>
-          <Link href="/products/design">DESIGN</Link>
-        </li>
-        <li className={style.menuItem}>
-          <Link href="/products/development">DEVELOPMENT</Link>
-        </li>
-        <li className={style.menuItem}>
-          <Link href="/products/production">PRODUCTION</Link>
-        </li>
-        <li className={style.menuItem}>
-          <Link href="/products/photography">PHOTOGRAPHY</Link>
-        </li>
-        <li className={style.menuItem}>
-          <Link href="/contact">CONTACT</Link>
-        </li>
-      </ul>
     </div>
   );
-};
+}
 
-export default Navbar;
+export default Navbar

@@ -4,6 +4,7 @@ import Intro from '@/components/Intro'
 import { data } from "../data";
 import Services from '@/components/Services'
 import Testimonials from '@/components/Testimonials';
+import Cursor from '@/components/Cursor';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,6 +16,7 @@ export default function Home({ services } : any) {
         <meta name="description" content="The best TikTok Agancy For everyone" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      <Cursor />
       <Intro />
       <Services services={services} />
       <Testimonials />
